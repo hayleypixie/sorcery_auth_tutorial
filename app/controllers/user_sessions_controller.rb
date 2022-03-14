@@ -1,5 +1,6 @@
 class UserSessionsController < ApplicationController
-  before_action :set_user, only: %i[ create ]
+  skip_before_action :require_login, only: [:new, :create]
+  before_action :set_user, only: [:create]
 
   def new
   end
